@@ -8,6 +8,7 @@ namespace ArraysWithCards
     {
         static void Main(string[] args)
         {
+            /*Explorer Mode*/
             var value = new string[] { "Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King" };
             var suit = new string[] { "Clubs", "Diamonds", "Hearts", "Spades" };
             //make deck list instead of array?
@@ -19,36 +20,48 @@ namespace ArraysWithCards
             var beginCount = deck.Count;
 
             //deck count prior to loop
-            Console.WriteLine(numberOfSuits);
-            Console.WriteLine(numberOfValues);
-            Console.WriteLine(beginCount);
+            Console.WriteLine($"There are {numberOfSuits} suits with {numberOfValues} cards each.");
+            Console.WriteLine($"Our deck currently has {beginCount} cards.");
 
             //populate deck
-            var counterOne = 0;
-            var counterTwo = 0;
             var deckPos = 0;
 
-            while (counterOne < numberOfSuits)
+            for (var counterOne = 0; counterOne < numberOfSuits; counterOne++)
             {
-                while (counterTwo < numberOfValues)
+                for (var counterTwo = 0; counterTwo < numberOfValues; counterTwo++)
                 {
-                    //Console.WriteLine(cardNumber);
                     deck.Insert(deckPos, value[counterTwo] + " of " + suit[counterOne]);
                     Console.WriteLine(deck[deckPos]);
-                    counterTwo++;
                     deckPos++;
-                    var numberOfCards = deck.Count;
-                    Console.WriteLine(numberOfCards);
                 }
-
-                counterOne++;
-                Console.WriteLine("Outer while loop.");
             }
 
 
             //deck count after building deck
             var endCount = deck.Count;
-            Console.WriteLine(endCount);
+            Console.WriteLine($"Our deck now has {endCount} cards.");
+
+            //Shuffle deck
+
+
+            //Display top two cards
+
+
+
+            /*Adventure Mode*/
+            //deal two cards
+
+
+            //deal two cards to multiple players
+
+
+            /*Epic Mode*/
+
+            //War
+
+
+
+
 
         }
     }
