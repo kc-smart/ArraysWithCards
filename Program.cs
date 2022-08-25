@@ -16,12 +16,12 @@ namespace ArraysWithCards
             //list counts/size
             var numberOfValues = value.Length;
             var numberOfSuits = suit.Length;
-            var cardNumber = deck.Count;
+            var beginCount = deck.Count;
 
             //deck count prior to loop
             Console.WriteLine(numberOfSuits);
             Console.WriteLine(numberOfValues);
-            Console.WriteLine(cardNumber);
+            Console.WriteLine(beginCount);
 
             //populate deck
             var counterOne = 0;
@@ -33,14 +33,23 @@ namespace ArraysWithCards
                 while (counterTwo < numberOfValues)
                 {
                     //Console.WriteLine(cardNumber);
-                    deck.Insert(deckPos, "{value[counterOne]}" + " of " + "{suit[counterTwo]}");
+                    deck.Insert(deckPos, value[counterTwo] + " of " + suit[counterOne]);
+                    Console.WriteLine(deck[deckPos]);
                     counterTwo++;
                     deckPos++;
+                    var numberOfCards = deck.Count;
+                    Console.WriteLine(numberOfCards);
                 }
+
                 counterOne++;
+                Console.WriteLine("Outer while loop.");
             }
+
+
             //deck count after building deck
-            Console.WriteLine(cardNumber);
+            var endCount = deck.Count;
+            Console.WriteLine(endCount);
+
         }
     }
 }
