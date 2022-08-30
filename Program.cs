@@ -132,7 +132,7 @@ namespace ArraysWithCards
                 count++;
             }
 
-            while (warOne.Count != 52 || warTwo.Count != 52)
+            while (warOne.Count < 52 && warTwo.Count < 52)
             {
 
                 //Set values
@@ -262,13 +262,16 @@ namespace ArraysWithCards
                 if (handOne > handTwo)
                 {
                     if (count == 2) { goto finishOne; }
-
-                    Console.WriteLine($"Player one wins with {warOne[count]}.");
-                    //player one wins hand
-                    warOne.Add(warTwo[count]);
-                    warOne.Add(warOne[count]);
-                    warTwo.Remove(warTwo[count]);
-                    warOne.Remove(warOne[count]);
+                    else
+                    {
+                        Console.WriteLine($"Player one wins with {warOne[count]}.");
+                        //player one wins hand
+                        warOne.Add(warTwo[count]);
+                        warOne.Add(warOne[count]);
+                        warTwo.Remove(warTwo[count]);
+                        warOne.Remove(warOne[count]);
+                        goto endLoop;
+                    }
 
 
 
@@ -276,14 +279,17 @@ namespace ArraysWithCards
                 else if (handOne < handTwo)
                 {
                     if (count == 2) { goto finishTwo; }
+                    else
+                    {
+                        Console.WriteLine($"Player two wins with {warTwo[count]}.");
 
-                    Console.WriteLine($"Player two wins with {warTwo[count]}.");
-
-                    //player two wins hand
-                    warTwo.Add(warOne[count]);
-                    warTwo.Add(warTwo[count]);
-                    warOne.Remove(warOne[count]);
-                    warTwo.Remove(warTwo[count]);
+                        //player two wins hand
+                        warTwo.Add(warOne[count]);
+                        warTwo.Add(warTwo[count]);
+                        warOne.Remove(warOne[count]);
+                        warTwo.Remove(warTwo[count]);
+                        goto endLoop;
+                    }
                 }
                 else if (handOne == handTwo)
                 {
