@@ -123,7 +123,7 @@ namespace ArraysWithCards
                 count++;
             }
 
-            Console.WriteLine("Player two has the following cards: ");
+            Console.WriteLine("\n\nPlayer two has the following cards: ");
             count = 0;
             while (count < warTwo.Count)
             {
@@ -196,7 +196,7 @@ namespace ArraysWithCards
                 }
 
                 //Display value of handOne
-                Console.WriteLine($"Player one's hand is worth {handOne}.");
+                Console.WriteLine($"\n\nPlayer one's hand is worth {handOne}.");
 
                 int handTwo = 0;
 
@@ -301,6 +301,7 @@ namespace ArraysWithCards
 
             finishOne:
                 //winner gets all cards dealt
+                count = 0;
                 Console.WriteLine($"Player one won the battle with {warOne[count + 2]}");
                 warOne.Add(warOne[count]);
                 warOne.Add(warOne[count + 1]);
@@ -310,9 +311,11 @@ namespace ArraysWithCards
                 warOne.Add(warTwo[count + 2]);
                 warOne.RemoveRange(0, 2);
                 warTwo.RemoveRange(0, 2);
+                goto endLoop;
 
             finishTwo:
                 //winner gets all cards dealt
+                count = 0;
                 Console.WriteLine($"Player two won the battle with {warTwo[count + 2]}");
                 warTwo.Add(warOne[count]);
                 warTwo.Add(warOne[count + 1]);
@@ -322,6 +325,10 @@ namespace ArraysWithCards
                 warTwo.Add(warTwo[count + 2]);
                 warOne.RemoveRange(0, 2);
                 warTwo.RemoveRange(0, 2);
+                goto endLoop;
+
+            endLoop:
+                Console.WriteLine($"Player one has {warOne.Count} cards. Player two has {warTwo.Count} cards.");
 
             }
 
@@ -332,11 +339,11 @@ namespace ArraysWithCards
         results:
             if (warOne.Count > warTwo.Count)
             {
-                Console.WriteLine("Player one wins with " + warOne.Count + " cards!");
+                Console.WriteLine("\n\nPlayer one wins with " + warOne.Count + " cards!");
             }
             else
             {
-                Console.WriteLine("Player one wins with " + warTwo.Count + " cards!");
+                Console.WriteLine("\n\nPlayer one wins with " + warTwo.Count + " cards!");
             }
 
 
