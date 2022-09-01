@@ -70,8 +70,8 @@ namespace ArraysWithCards
             /*Adventure Mode*/
             //deal two cards
 
-            /* *****Commented out to run War game below.*****
 
+            /* 
             //deal two cards to multiple players; max 7 players
             Console.Write("How many players? ");
             var numberOfPlayers = Console.ReadLine();
@@ -102,6 +102,7 @@ namespace ArraysWithCards
             }
             */
 
+
             /*Epic Mode*/
 
             Console.WriteLine("\n               -----\n                War\n               -----");
@@ -119,7 +120,7 @@ namespace ArraysWithCards
                 count = count + 2;
             }
 
-            /* *****Commenting out to run War game below.*****
+
 
             //Display each hand
             Console.WriteLine("\n\nPlayer one has the following cards: ");
@@ -139,7 +140,7 @@ namespace ArraysWithCards
                 Console.WriteLine(warTwo[count]);
                 count++;
             }
-            */
+
 
             while (warOne.Count < 52 && warTwo.Count < 52)
             {
@@ -206,7 +207,7 @@ namespace ArraysWithCards
                 }
 
                 //Display value of handOne
-                //Console.WriteLine($"\n\nPlayer one's hand is worth {handOne}.");
+                Console.WriteLine($"\n\nPlayer one's hand is worth {handOne}.");
 
                 //Player two hand
                 if (warTwo[count].Contains("2"))
@@ -263,7 +264,7 @@ namespace ArraysWithCards
                 }
 
                 //Display value of handTwo
-                //Console.WriteLine($"Player two's hand is worth {handTwo}.");
+                Console.WriteLine($"Player two's hand is worth {handTwo}.");
 
                 //Compare cards
                 if (handOne > handTwo)
@@ -351,7 +352,7 @@ namespace ArraysWithCards
                 }
                 //Console.WriteLine($"Added {winningCardsTwo.Count} cards from Player One and Player Two.");
 
-                warOne.AddRange(winningCardsTwo);
+                warTwo.AddRange(winningCardsTwo);
                 warOne.RemoveRange(0, removeTwo);
                 warTwo.RemoveRange(0, removeTwo);
                 goto endLoop;
@@ -369,7 +370,7 @@ namespace ArraysWithCards
             }
             else
             {
-                Console.WriteLine("\n\nPlayer one wins with " + warTwo.Count + " cards!");
+                Console.WriteLine("\n\nPlayer two wins with " + warTwo.Count + " cards!");
             }
         }
     }
